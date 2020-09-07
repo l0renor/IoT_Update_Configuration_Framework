@@ -1,0 +1,6 @@
+{
+  "app_name": "App1V1",
+  "apt": [],
+  "pip": [],
+  "config_url" : "/rest/iptables-conf/"
+}

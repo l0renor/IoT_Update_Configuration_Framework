@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% load static %}
+    <title>Login IoT Config</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href = {% static 'assets/css/main.css' %} />
+    <noscript>
+        <link rel="stylesheet" href= {% static 'assets/css/noscript.css' %} />
+    </noscript>
+</head>
+<body class="is-preload">
+
+<section id="sidebar">
+    <div class="inner">
+        <nav>
+            <ul>
+                <li>User: {{ user.get_username }}</li>
+                <li><a href="{% url 'config:home_store_view' %}?next={{ request.path }}">Home</a></li>
+                <li><a href="{% url 'config:logout' %}?next={{ request.path }}">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Intro -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+        <div class="inner">
+            {% load render_table from django_tables2 %}
+            {% block content %}
+                <h2>Available  DNS Domains:</h2>
+                    {% render_table not_installed %}
+                <h2>Your blocked DNS Domains:</h2>
+                    {% render_table installed %}
+
+                </div>
+                </section>
+
+
+                <section id="two" class="wrapper style1-alt fade-up">
+                    <div class="inner">
+                        <h2>Change your Configuration</h2>
+                        <p>Block or unblock domains by typing its id into corresponding the field.</p>
+                        <div class="split style1">
+                            <section>
+                                <form method="POST"
+                                      action={% url 'config:block_domain'%} class="post-form">{% csrf_token %}
+                                    <div class="fields">
+                                        {{ form.as_p }}
+                                    </div>
+                                    <button type="submit" class="save btn btn-default">Block</button>
+                                </form>
+                            </section>
+                            <section>
+                                <form method="POST"
+                                      action={% url 'config:unblock_domain'%} class="post-form">{% csrf_token %}
+                                    <div class="fields">
+                                        {{ form.as_p }}
+                                    </div>
+                                    <button type="submit" class="save btn btn-default">Unblock</button>
+                                </form>
+                            </section>
+
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="two" class="wrapper style1 fade-up">
+                    <div class="inner">
+                        <h2>Uninstall</h2>
+                        <p>If you want to uninstall DNS-Firewall click the button</p>
+                        <div class="split style1">
+                            <section>
+                                <form method="POST"
+                                    action={% url 'config:uninstall' id %} class="post-form">{% csrf_token %}
+                                    <button type="submit" class="save btn btn-default">Uninstall</button>
+                                </form>
+                            </section>
+
+                        </div>
+                    </div>
+                </section>
+
+            {% endblock %}
+</div>
+</body>
+<!-- Footer -->
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy; Leon Lukas. All rights reserved.</li>
+        </ul>
+    </div>
+</footer>
+
+<!-- Scripts -->
+{% load static %}
+<script src={% static 'assets/js/jquery.min.js' %}></script>
+<script src={% static 'assets/js/jquery.scrollex.min.js' %}></script>
+<script src={% static 'assets/js/jquery.scrolly.min.js' %}></script>
+<script src={% static 'assets/js/browser.min.js' %}></script>
+<script src={% static 'assets/js/breakpoints.min.js' %}></script>
+<script src={% static 'assets/js/util.js' %}></script>
+<script src={% static 'assets/js/main.js' %}></script>
+
+</body>
+</html>

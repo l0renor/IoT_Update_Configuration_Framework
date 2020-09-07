@@ -1,0 +1,2 @@
+import config.app_views
+import config.basic_views

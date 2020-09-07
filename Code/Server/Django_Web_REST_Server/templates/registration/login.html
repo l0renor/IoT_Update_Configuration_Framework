@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% load static %}
+    <title>Login IoT Config</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href= {% static 'assets/css/main.css' %} />
+    <noscript>
+        <link rel="stylesheet" href= {% static 'assets/css/noscript.css' %}/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Intro -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+        <div class="inner">
+            <h1>Login</h1>
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                        please login with an account that has access.</p>
+                {% else %}
+                    <p>Please login to see this page.</p>
+                {% endif %}
+            {% endif %}
+
+            <form method="post" action="{% url 'config:login' %}">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>{{ form.username.label_tag }}</td>
+                        <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ form.password.label_tag }}</td>
+                        <td>{{ form.password }}</td>
+                    </tr>
+                </table>
+                <input type="submit" value="login"/>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
+
+
+        </div>
+    </section>
+
+
+
+</div>
+
+<!-- Footer -->
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy; Leon Lukas. All rights reserved.</li>
+        </ul>
+    </div>
+</footer>
+
+<!-- Scripts -->
+{% load static %}
+<script src={% static 'assets/js/jquery.min.js' %}></script>
+<script src={% static 'assets/js/jquery.scrollex.min.js' %}></script>
+<script src={% static 'assets/js/jquery.scrolly.min.js' %}></script>
+<script src={% static 'assets/js/browser.min.js' %}></script>
+<script src={% static 'assets/js/breakpoints.min.js' %}></script>
+<script src={% static 'assets/js/util.js' %}></script>
+<script src={% static 'assets/js/main.js' %}></script>
+
+</body>
+</html>

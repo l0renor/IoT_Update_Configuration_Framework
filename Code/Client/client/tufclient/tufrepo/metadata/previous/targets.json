@@ -1,0 +1,27 @@
+{
+ "signatures": [
+  {
+   "keyid": "8b3d6d8a2c45b4b91588fbcc5f00787e93709dc50fda657a17fe518b5f868db5",
+   "sig": "96b80a8894d009b099fd4df4a950342a158d3f0a47d145c71f01c60d2897dbabe0553363c6abff1875f8e6e8b1efffa3a5e2e0182c592a0cb8ec46703a682a08"
+  }
+ ],
+ "signed": {
+  "_type": "targets",
+  "delegations": {
+   "keys": {},
+   "roles": []
+  },
+  "expires": "2020-06-27T03:26:45Z",
+  "spec_version": "1.0.0",
+  "targets": {
+   "App1V_1.zip": {
+    "hashes": {
+     "sha256": "49b90c13535a86b11bff9c879c784e5beac939cfd1c7760c3ef90e1ee5ff5ede",
+     "sha512": "88d19cd33369eb01317be7234e9f23b7db680be060de83ac27c7a5cc0e3fc99460ddf96bbf86c78f3800d5971a6619331803275cc215b1dd9266e13dd240c4e1"
+    },
+    "length": 2035
+   }
+  },
+  "version": 67
+ }
+}

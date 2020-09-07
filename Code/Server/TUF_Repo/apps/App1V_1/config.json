@@ -1,0 +1,1 @@
+[{"chain": "INPUT", "destination_port": 2, "packet_type": "tcp", "action": "ACCEPT"}]

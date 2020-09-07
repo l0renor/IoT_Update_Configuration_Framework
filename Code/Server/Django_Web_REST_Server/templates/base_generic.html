@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}<title>IoT-Config</title>{% endblock %}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<style>
+.content {
+  margin: auto;
+}
+</style>
+<body>
+
+
+
+{% block sidebar %}
+    <ul class="sidebar-nav">
+
+
+        {% if user.is_authenticated %}
+            <li>User: {{ user.get_username }}</li>
+            <li><a href="{% url 'config:logout' %}?next={{ request.path }}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'config:login' %}?next={{ request.path }}">Login</a></li>
+        {% endif %}
+    </ul>{% endblock %}
+{% block content %}<!-- default content text (typically empty) -->{% endblock %}
+</body>
+</html>

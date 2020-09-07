@@ -1,0 +1,86 @@
+2020-06-22 12:59:35 - INFO    : App loader started.
+2020-06-22 12:59:35 - INFO    : Started main loop
+2020-06-22 12:59:36 - INFO    : loading device info:
+2020-06-22 12:59:36 - INFO    : Starting Download from: http://0.0.0.0:8000/rest/stage1/devices/
+2020-06-22 12:59:36 - INFO    : Success: Config: device: 12 , user device1user 
+2020-06-22 12:59:41 - INFO    : installing app id: 1
+2020-06-22 12:59:43 - INFO    : Update: App1V_1.zip at https://dns-rpz.cs.hm.edu:8001
+2020-06-22 12:59:44 - DEBUG   : Adding roles delegated from 'targets'.
+2020-06-22 12:59:44 - INFO    : TUF is updating...
+2020-06-22 12:59:44 - INFO    : Downloading: 'https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json'
+2020-06-22 12:59:44 - DEBUG   : url: https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json
+2020-06-22 12:59:44 - DEBUG   : session index: https+dns-rpz.cs.hm.edu
+2020-06-22 12:59:44 - DEBUG   : Made new session for https+dns-rpz.cs.hm.edu
+2020-06-22 12:59:44 - ERROR   : Could not download URL: 'https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json'
+Traceback (most recent call last):
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/tuf/download.py", line 264, in _download_file
+    response.raise_for_status()
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/requests/models.py", line 941, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: File not found for url: https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json
+2020-06-22 12:59:44 - ERROR   : Update failed from https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json.
+Traceback (most recent call last):
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/tuf/client/updater.py", line 1507, in _get_metadata_file
+    upperbound_filelength)
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/tuf/download.py", line 150, in unsafe_download
+    return _download_file(url, required_length, STRICT_REQUIRED_LENGTH=False)
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/tuf/download.py", line 264, in _download_file
+    response.raise_for_status()
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/requests/models.py", line 941, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: File not found for url: https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json
+2020-06-22 12:59:44 - ERROR   : Failed to update '2.root.json' from all mirrors: {'https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json': HTTPError('404 Client Error: File not found for url: https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json')}
+2020-06-22 12:59:44 - ERROR   : HTTP error for root version 2
+Traceback (most recent call last):
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/tuf/client/updater.py", line 1150, in _update_root_metadata
+    version=next_version)
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/tuf/client/updater.py", line 1786, in _update_metadata
+    upperbound_filelength, version)
+  File "/home/leon/PycharmProjects/TUF2/venv37/lib/python3.7/site-packages/tuf/client/updater.py", line 1602, in _get_metadata_file
+    raise tuf.exceptions.NoWorkingMirrorError(file_mirror_errors)
+tuf.exceptions.NoWorkingMirrorError: No working mirror was found:
+  'dns-rpz.cs.hm.edu:8001': HTTPError('404 Client Error: File not found for url: https://dns-rpz.cs.hm.edu:8001/metadata/2.root.json')
+2020-06-22 12:59:44 - INFO    : Downloading: 'https://dns-rpz.cs.hm.edu:8001/metadata/timestamp.json'
+2020-06-22 12:59:44 - DEBUG   : url: https://dns-rpz.cs.hm.edu:8001/metadata/timestamp.json
+2020-06-22 12:59:44 - DEBUG   : session index: https+dns-rpz.cs.hm.edu
+2020-06-22 12:59:44 - DEBUG   : Reusing session for https+dns-rpz.cs.hm.edu
+2020-06-22 12:59:44 - DEBUG   : The server reported a length of 559 bytes.
+2020-06-22 12:59:44 - DEBUG   : The reported length is less than the upper limit of 16384 bytes.
+2020-06-22 12:59:44 - DEBUG   : The average download speed has not dipped below the minimum average download speed set in tuf.settings.py.
+2020-06-22 12:59:44 - DEBUG   : The average download speed has not dipped below the minimum average download speed set in tuf.settings.py.
+2020-06-22 12:59:44 - DEBUG   : Downloaded 559/16384 bytes.
+2020-06-22 12:59:44 - DEBUG   : Good average download speed: 382533.74195414793 bytes per second
+2020-06-22 12:59:44 - INFO    : Downloaded 559 bytes out of an upper limit of 16384 bytes.
+2020-06-22 12:59:44 - DEBUG   : Updated '/home/leon/PycharmProjects/TUF2/client/tufclient/tufrepo/metadata/current/timestamp.json'.
+2020-06-22 12:59:44 - DEBUG   : 'snapshot' referenced in 'timestamp'.  'snapshot' may be updated.
+2020-06-22 12:59:44 - DEBUG   : New version for 'snapshot.json': 79.  Old version: 79
+2020-06-22 12:59:44 - INFO    : 'snapshot.json' up-to-date.
+2020-06-22 12:59:44 - DEBUG   : 'targets' referenced in 'snapshot'.  'targets' may be updated.
+2020-06-22 12:59:44 - DEBUG   : New version for 'targets.json': 79.  Old version: 79
+2020-06-22 12:59:44 - INFO    : 'targets.json' up-to-date.
+2020-06-22 12:59:44 - DEBUG   : 'targets' referenced in 'snapshot'.  'targets' may be updated.
+2020-06-22 12:59:44 - DEBUG   : New version for 'targets.json': 79.  Old version: 79
+2020-06-22 12:59:44 - INFO    : 'targets.json' up-to-date.
+2020-06-22 12:59:44 - DEBUG   : Roles to update: ['targets'].
+2020-06-22 12:59:44 - DEBUG   : Adding roles delegated from 'targets'.
+2020-06-22 12:59:44 - DEBUG   : 'targets' referenced in 'snapshot'.  'targets' may be updated.
+2020-06-22 12:59:44 - DEBUG   : New version for 'targets.json': 79.  Old version: 79
+2020-06-22 12:59:44 - INFO    : 'targets.json' up-to-date.
+2020-06-22 12:59:44 - DEBUG   : Asking role 'targets' about target 'App1V_1.zip'
+2020-06-22 12:59:44 - DEBUG   : Found target App1V_1.zip in role targets
+2020-06-22 12:59:44 - DEBUG   : Found target in current role 'targets'
+2020-06-22 12:59:44 - INFO    : Downloading: 'https://dns-rpz.cs.hm.edu:8001/targets/App1V_1.zip'
+2020-06-22 12:59:44 - DEBUG   : url: https://dns-rpz.cs.hm.edu:8001/targets/App1V_1.zip
+2020-06-22 12:59:44 - DEBUG   : session index: https+dns-rpz.cs.hm.edu
+2020-06-22 12:59:44 - DEBUG   : Reusing session for https+dns-rpz.cs.hm.edu
+2020-06-22 12:59:44 - DEBUG   : The server reported a length of 2106 bytes.
+2020-06-22 12:59:44 - DEBUG   : The reported length is equal to the required length of 2106 bytes.
+2020-06-22 12:59:44 - INFO    : Downloaded 2106 bytes out of the expected 2106 bytes.
+2020-06-22 12:59:44 - DEBUG   : Observed length (2106) == trusted length (2106)
+2020-06-22 12:59:44 - INFO    : The file's sha256 hash is correct: cbfc59f2651095be35d496925cbf9e8b111f2ce471e762d2748db5a4d1691a88
+2020-06-22 12:59:44 - INFO    : The file's sha512 hash is correct: cd00179b3fc15f2a32faf306fcc62fd5978e391fac4c8f8c6bff7c9f1ef5a090d3dc74ee65389f1e4c09512f8d3d9cc3066efb4f55a8f989da9da91610f80d67
+2020-06-22 12:59:47 - INFO    : TUF  updating  {'filepath': 'App1V_1.zip', 'fileinfo': {'hashes': {'sha256': 'cbfc59f2651095be35d496925cbf9e8b111f2ce471e762d2748db5a4d1691a88', 'sha512': 'cd00179b3fc15f2a32faf306fcc62fd5978e391fac4c8f8c6bff7c9f1ef5a090d3dc74ee65389f1e4c09512f8d3d9cc3066efb4f55a8f989da9da91610f80d67'}, 'length': 2106}}
+2020-06-22 12:59:49 - DEBUG   : Skipping: 'App1V_1.zip'.  It is still a current target.
+2020-06-22 13:00:15 - ERROR   : Error downloading iptables
+2020-06-22 13:00:15 - INFO    : All apps updated
+2020-06-22 13:00:15 - INFO    : all apps uninstalled
